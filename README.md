@@ -1,6 +1,6 @@
 ## AvatarView
 
-AvatarView is a component for jetpack compose where you can add an image or user holder. 
+AvatarView is a component for jetpack compose where you can add an image or user name. 
 
 <p align="center">
   <img src="https://github.com/ARV02/avatar-view-compose/assets/56147310/98bd5f13-43a0-41e6-b61b-d476e641674f" />
@@ -13,7 +13,7 @@ You can download a jar from GitHub's [releases page](https://github.com/ARV02/av
 
 For download add next to settings.gradle:
 
-```
+``` gradle
 repositories {
   google()
   mavenCentral()
@@ -24,7 +24,7 @@ repositories {
 
 In yout build.gradle(:app):
 
-```
+``` gradle
 dependencies {
   implementation 'com.github.ARV02:avatar-view-compose:1.0.0'
 }
@@ -33,7 +33,7 @@ dependencies {
 
 or Maven: 
 
-```
+``` xml
 <repositories>
   <repository>
     <id>jitpack.io</id>
@@ -43,7 +43,7 @@ or Maven:
 
 ```
 
-```
+``` xml
 <dependency>
   <groupId>com.github.ARV02</groupId>
   <artifactId>avatar-view-compose</artifactId>
@@ -56,7 +56,7 @@ or Maven:
 ##
 ### How do I use Avatar View?
 
-```
+``` kotlin
 @Composable
 fun Screen() {
   ComposeTheme {
