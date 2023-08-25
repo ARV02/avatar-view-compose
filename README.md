@@ -22,11 +22,11 @@ repositories {
 
 ```
 
-In yout build.gradle(:app):
+In your build.gradle(:app):
 
 ``` gradle
 dependencies {
-  implementation 'com.github.ARV02:avatar-view-compose:1.0.0'
+  implementation 'com.github.ARV02:avatar-view-compose:1.0.1'
 }
 
 ```
@@ -51,7 +51,7 @@ or Maven:
 </dependency>
 
 ```
-**Note:** Make sure your JDK is 17.
+**Note:** Make sure your JDK is 18.
 
 ##
 ### How do I use Avatar View?
