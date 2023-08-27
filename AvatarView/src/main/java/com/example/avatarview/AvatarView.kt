@@ -3,7 +3,6 @@ package com.example.avatarview
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
@@ -21,7 +20,6 @@ import androidx.compose.ui.draw.drawWithContent
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.isUnspecified
@@ -29,10 +27,12 @@ import androidx.compose.ui.unit.isUnspecified
 @Composable
 fun AvatarView(
     size: Dp,
+    backgroundColor: Color = AvatarViewDefaults.backgroundColor,
     icon: Painter? = null,
-    isBorder: Boolean = true,
-    borderColor: Color = Color.LightGray,
-    backgroundColor:Color = MaterialTheme.colorScheme.surface,
+    borderEnabled: Boolean = true,
+    borderWidth: Dp = AvatarViewDefaults.borderSize,
+    borderColor: Color = AvatarViewDefaults.borderColor,
+    textColor: Color = AvatarViewDefaults.textColor,
     text: String? = null,
     textStyle: TextStyle = MaterialTheme.typography.displaySmall
 ) {
@@ -43,12 +43,11 @@ fun AvatarView(
 
     Surface(
         shape = RoundedCornerShape(percent = 50),
-        border = if(isBorder) BorderStroke(width = 1.dp, color = borderColor) else BorderStroke(width = 0.dp, color = Color.Unspecified),
+        border = if (borderEnabled) BorderStroke(borderWidth, borderColor) else BorderStroke(0.dp, Color.Transparent),
         color = backgroundColor
     ) {
         Row(
             modifier = Modifier
-                .padding(2.dp)
                 .size(size),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center
@@ -66,6 +65,7 @@ fun AvatarView(
                             drawContent()
                         }
                     },
+                    color = textColor,
                     softWrap = false,
                     style = resizedTextStyle,
                     onTextLayout = {result ->
@@ -88,11 +88,13 @@ fun AvatarView(
     }
 }
 
-@Composable
-@Preview
-fun PreviewAvatarView() {
-    AvatarView(
-        size = 64.dp,
-        text = "AR"
-    )
+object AvatarViewDefaults {
+
+    val textColor = Color.White
+
+    val backgroundColor = Color.Black
+
+    val borderColor = Color.White
+
+    val borderSize = 1.dp
 }

@@ -26,7 +26,7 @@ In your build.gradle(:app):
 
 ``` gradle
 dependencies {
-  implementation 'com.github.ARV02:avatar-view-compose:1.0.1'
+  implementation 'com.github.ARV02:avatar-view-compose:1.0.2'
 }
 
 ```
@@ -47,7 +47,7 @@ or Maven:
 <dependency>
   <groupId>com.github.ARV02</groupId>
   <artifactId>avatar-view-compose</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.2</version>
 </dependency>
 
 ```
@@ -67,8 +67,10 @@ fun Screen() {
   ){
     //Import AvatarView
     AvatarView(
-        text = "AR"
-        color = Color.White,
+        text = "AR",
+        backgroundColor = Color.Magenta,
+        borderColor = Color.Red,
+        borderWidth = 2.dp
         borderColor = Color.Black)
     }
   }
